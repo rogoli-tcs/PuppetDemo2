@@ -1,0 +1,11 @@
+---
+:backends:
+  - yaml
+  - json
+:yaml:
+  :datadir: "hieradata"
+:json:
+  :datadir: "hieradata"
+:hierarchy:
+  - "common"
+  - "test"
