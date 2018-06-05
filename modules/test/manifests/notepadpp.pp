@@ -10,12 +10,12 @@ class test::notepadpp{
 	
 	#installing an application************
 	
-	$local_path="C:\\Users\\Administrator.QA-JYOTHI\\Desktop\\npp.7.5.3.Installer.exe"
-	
+	$path=hiera('path')
+	$app=hiera('npp')
 	package{ 'npp.7.5.3.Installer':
 	provider => windows,
 		ensure => installed,
-		source => "$local_path",
+		source => "$path\\$app",
 		
 		install_options => ['/S'],
 		
