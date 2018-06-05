@@ -1,4 +1,4 @@
-include chocolatey
+#include chocolatey
 class test::notepadpp{
 
 	/*notice("This is from Class Test Notepad")
@@ -8,9 +8,20 @@ class test::notepadpp{
 	notice($var1)
 	notice($var2)*/
 	
-	package{ 'notepadplusplus':
+	#installing an application************
+	
+	$local_path="C:\\Users\\Administrator.QA-JYOTHI\\Desktop\\npp.7.5.3.Installer.exe"
+	
+	package{ 'npp.7.5.3.Installer':
+	provider => windows,
 		ensure => installed,
-		provider => 'chocolatey'
+		source => "$local_path",
+		
+		install_options => ['/S'],
+		
 	}
+	
+	
+	
 }
 #include test::notepadpp
