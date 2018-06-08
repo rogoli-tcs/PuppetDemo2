@@ -7,5 +7,6 @@ node default {
 	#include test::notepadpp
 	#include test::chocolateyy
 	#include test::chocolatey2
-	include test::javainstall
+	#include test::javainstall
+	include test::hiera_app
 	}
