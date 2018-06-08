@@ -36,13 +36,5 @@ class test::notepadpp{
 }
 
 
-#include test::notepadpp
-/*package{ 'npp.7.5.3.Installer':
-	provider => windows,
-		ensure => installed,
-		source => "",
-		
-		install_options => ['S'],
-		
-	}*/
+
 	
