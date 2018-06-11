@@ -9,40 +9,20 @@ class test::notepadpp{
 	notice($var2)*/
 	
 	#installing an application************
-#keys***	
+	
 	$path=hiera('path')
-	#$app=hiera('npp')
-#array***
-	#$apps=hiera('softwares')
-	#$apps.each|String $app|{
-	#	notice($app)
-	#}
-#hashh***
-	#$hashh=hiera('softwaress')
-	#notice($hashh[npp])
-	#$app=$hashh[npp]
-
-#task***array
-	
-	$apps=hiera('softwares')
-	$apps.each|String $app|
-		{
-		#notice($app)
-	exec{"$app":
-	command => "$path\\$app /s",
-		}
-	}
-	
-}
-
-
-#include test::notepadpp
-/*package{ 'npp.7.5.3.Installer':
+	$app=hiera('npp')
+	package{ 'npp.7.5.3.Installer':
 	provider => windows,
 		ensure => installed,
-		source => "",
+		source => "$path\\$app",
 		
-		install_options => ['S'],
+		install_options => ['/S'],
 		
-	}*/
+	}
+	
+	
+	
+}
+#include test::notepadpp
 	
