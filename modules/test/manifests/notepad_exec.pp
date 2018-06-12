@@ -1,4 +1,4 @@
-class test::notepad_no_choco{
+class test::notepad_exec{
 
 #installing notepad
 #exec{'notepadplusplus':
