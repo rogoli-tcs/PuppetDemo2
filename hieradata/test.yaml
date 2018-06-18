@@ -10,3 +10,6 @@ softwares :
 softwaress:
    npp: "npp.7.5.3Installer.exe"
    java: "jdk-10.0.1_windows-x64_bin"
+
+zippath: C:\Users\Administrator.QA-JYOTHI\Desktop\puppet\modules\test\files
+pspath: C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
