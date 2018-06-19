@@ -1,20 +1,21 @@
 class test::depend{
 $ps=hiera("pspath")
-exec{"folderpresent":
-command => "$ps ; md -path 'D:/folder'",
-onlyif => "$ps ; Test-path -path 'D:/folder'",
+exec{"folder":
+command => "$ps ; md D:/folder",
+returns => ["1","0"],
 }
 
-exec{"file1":
-command => "$ps ; New-Item D:/folder/file1.txt -type file",
-onlyif => "$ps ; Test-path -path 'D:\\folder\\file1.txt'",
-#onlyif => "$ps ; -Not(Test-path -path 'D:\\folder')",
+file{"file1":
+ensure => present,
+path => "D:/folder/file1.txt",
+content => "this is content",
 }
 
 exec{"file2":
 command => "$ps ; New-Item D:/folder/file2.txt -type file",
-onlyif => "$ps ; Test-path -path 'D:\\folder\\file2.txt'",
-#onlyif => "$ps ; -Not(Test-path -path 'D:\\folder\\file1.txt')",
-subscribe => Exec["folderpresent"],
+returns => ["1","0"],
+subscribe => File["file1"],
+refreshonly => true,
 }
+
 }
